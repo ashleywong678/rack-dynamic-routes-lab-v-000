@@ -9,8 +9,8 @@ class Application
     if req.path.match(/items/)
       search_term = req.path.split("/").last
         binding.pry
-        if @@items.find{search_term}
-          resp.write "#{search_term.price}"
+        if @@items.find{|item| item.name == search_term}
+          resp.write "#{.price}"
         else
           resp.write "Item not found"
           resp.status = 400
