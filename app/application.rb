@@ -1,3 +1,4 @@
+require 'pry'
 class Application
   
   @@items = []
@@ -8,6 +9,7 @@ class Application
 
     if req.path.match(/items/)
       search_term = req.params["item"]
+        binding.pry
         if @@items.include?(search_term)
           resp.write "#{search_term.price}"
         else
