@@ -9,7 +9,7 @@ class Application
     if req.path.match(/items/)
       search_term = req.path.split("/").last
         binding.pry
-        if @@items.include?(search_term)
+        if @@items.find{search_term}
           resp.write "#{search_term.price}"
         else
           resp.write "Item not found"
